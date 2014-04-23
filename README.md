@@ -15,10 +15,15 @@ I prefer to use it within a class to set any inexistents properties.
 a Registry Class example:
 
 ```PHP
-use \PPMFWK
 ... 
+private _Registry;
+
+function __construct() {
+	$this->_Registry = new stdClass();
+}
+
 public function __set($varName, $value) {
-   $this->_Registry->$varName = new libraries\ObjectApply($value);
+   $this->_Registry->$varName = new ObjectApply($value);
 ...
 }
 ```
