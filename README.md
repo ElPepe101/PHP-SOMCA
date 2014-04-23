@@ -1,23 +1,29 @@
 PHP-SOMCA
 =========
 
+Work In progress.
+---------
+
 ~~Improved~~ (I believe it's just a flavor) syntax for PHPs Object's Multiple Chained Actions (Ruby style)
 
 This is part of a library for my personal micro-framework/template https://github.com/ElPepe101/Template so I'm trying to support both the most time I can... though I think It's pretty cool, dunno if It's really functional to anyone.
 
 Intended to use with all the PHP internal functions for any (or respective) data type; I haven't had the time to improve the method, test performance or testing all PHP functions (It's really annoying the lack of consistency on the position syntax of params around all the functions, I'm trying to make it more simple to workaround)
 
-I prefer to use it in an object 
-Registry Class example:
+I prefer to use it within a class to set any inexistents properties.
+
+a Registry Class example:
+
 ```PHP
 use \PPMFWK
 ... 
 public function __set($varName, $value) {
    $this->_Registry->$varName = new libraries\ObjectApply($value);
 ...
-}```
-
+}
+```
 Instance of the Registry class example:
+
 ```PHP
 // Instead of doing this:
 $foo = 'var';                                     // set a value
@@ -42,5 +48,7 @@ $foo->inexistent_property = 10;                   // changed the data type and v
 echo $foo->inexistent_property->sha1()->sha1()->value(); // will echo the twice encrypted value of 10
 $foo->inexistent_property2 = array();             // now with arrays
 ```
+
+It really clear things out in the example files.
 
 Really hope It helps someone to code faster or stylish in PHP.
